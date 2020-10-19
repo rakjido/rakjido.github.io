@@ -1,0 +1,20 @@
+---
+layout: post
+title: "About"
+author: "ROOFTOP HERO"
+permalink: /about/
+---
+
+![result.jpeg](/images/pages/about.jpeg){: width="80%" height="80%"}{: .center}
+<br>
+### "영원한 여름"
+<br>
+아주 어릴 적 하늘의 구름을 잡으러 여행을 떠났다.<br>
+용감하게 불이 나 홀랑 타버린 공장까지 갔지만<br> 
+구름은 잡을 수 없었다<br>
+<br>
+500미터도 채 되지 않은 거리였지만<br>
+얼마나 설레고 즐거웠던가<br>
+<br>
+여름은 이내 가지만<br>
+영원한 여름을 꿈꾼다 
