@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>VSCODE에서 Python VirtualEnv 실행하기 | ROOFTOP HERO</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="VSCODE에서 Python VirtualEnv 실행하기" />
+<meta name="author" content="Rooftop Hero" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Visual Studio Code에서 VirtualEnv를 설정하고 Code Runner로 실행합니다. 프로젝트를 생성하고자 하는 디렉토리를 만든 후 그 디렉토리 내에서 VSCODE를 실행합니다. VSCODE의 Extension을 클릭하여 Code runner를 설치합니다. ctrl + alt+ n 을 누르면 해당 python 파일을 실행합니다. 이 경우에는 시스템에서 default로 설정된 python으로 실행이 됩니다. Terminal &gt; New Terminal로 터미널을 연 후 다음과 같이 가상환경을 설정합니다. # MacOS/Linux python3 -m venv .venv # Windows pip install virtualenv virtualenv .venv VSCODE에서 맥에서는 command + shift + p, 윈도에서는 ctrl + shift + p를 눌러 command palette에서 Python&gt;Select Interpreter를 선택합니다. (.venv&#39;:venv)인 python을 선택합니다. 이제 Code Runner에 VirtaulEnv의 python을 설정합니다. 프로젝트폴더 &gt; .vscode &gt; settings.json을 다음과 같이 저장한 후, VSCODE를 재실행합니다. MacOS/Linux { &quot;python.pythonPath&quot;: &quot;.venv/bin/python&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } Windows 10 { &quot;python.pythonPath&quot;: &quot;.venv\\Scripts\\python.exe&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } test.py에서 ctrl + alt+ n 을 누르면 virtualenv환경에서 실행되는 것을 확인할 수 있습니다. Terminal옆의 +버튼을 누르면 VirtualEnv으로 전환됩니다. 윈도10에서는 terminal을 powershell이 아닌 cmd를 선택해야 가상환경이 activate됩니다. terminal &gt; select default shell &gt; Command prompt 이후 pip install 패키지명으로 원하는 패키지를 install하면 됩니다." />
+<meta property="og:description" content="Visual Studio Code에서 VirtualEnv를 설정하고 Code Runner로 실행합니다. 프로젝트를 생성하고자 하는 디렉토리를 만든 후 그 디렉토리 내에서 VSCODE를 실행합니다. VSCODE의 Extension을 클릭하여 Code runner를 설치합니다. ctrl + alt+ n 을 누르면 해당 python 파일을 실행합니다. 이 경우에는 시스템에서 default로 설정된 python으로 실행이 됩니다. Terminal &gt; New Terminal로 터미널을 연 후 다음과 같이 가상환경을 설정합니다. # MacOS/Linux python3 -m venv .venv # Windows pip install virtualenv virtualenv .venv VSCODE에서 맥에서는 command + shift + p, 윈도에서는 ctrl + shift + p를 눌러 command palette에서 Python&gt;Select Interpreter를 선택합니다. (.venv&#39;:venv)인 python을 선택합니다. 이제 Code Runner에 VirtaulEnv의 python을 설정합니다. 프로젝트폴더 &gt; .vscode &gt; settings.json을 다음과 같이 저장한 후, VSCODE를 재실행합니다. MacOS/Linux { &quot;python.pythonPath&quot;: &quot;.venv/bin/python&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } Windows 10 { &quot;python.pythonPath&quot;: &quot;.venv\\Scripts\\python.exe&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } test.py에서 ctrl + alt+ n 을 누르면 virtualenv환경에서 실행되는 것을 확인할 수 있습니다. Terminal옆의 +버튼을 누르면 VirtualEnv으로 전환됩니다. 윈도10에서는 terminal을 powershell이 아닌 cmd를 선택해야 가상환경이 activate됩니다. terminal &gt; select default shell &gt; Command prompt 이후 pip install 패키지명으로 원하는 패키지를 install하면 됩니다." />
+<link rel="canonical" href="http://localhost:4000/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE" />
+<meta property="og:url" content="http://localhost:4000/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE" />
+<meta property="og:site_name" content="ROOFTOP HERO" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-30T00:00:00+09:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE","headline":"VSCODE에서 Python VirtualEnv 실행하기","dateModified":"2019-09-30T00:00:00+09:00","datePublished":"2019-09-30T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE"},"author":{"@type":"Person","name":"Rooftop Hero"},"description":"Visual Studio Code에서 VirtualEnv를 설정하고 Code Runner로 실행합니다. 프로젝트를 생성하고자 하는 디렉토리를 만든 후 그 디렉토리 내에서 VSCODE를 실행합니다. VSCODE의 Extension을 클릭하여 Code runner를 설치합니다. ctrl + alt+ n 을 누르면 해당 python 파일을 실행합니다. 이 경우에는 시스템에서 default로 설정된 python으로 실행이 됩니다. Terminal &gt; New Terminal로 터미널을 연 후 다음과 같이 가상환경을 설정합니다. # MacOS/Linux python3 -m venv .venv # Windows pip install virtualenv virtualenv .venv VSCODE에서 맥에서는 command + shift + p, 윈도에서는 ctrl + shift + p를 눌러 command palette에서 Python&gt;Select Interpreter를 선택합니다. (.venv&#39;:venv)인 python을 선택합니다. 이제 Code Runner에 VirtaulEnv의 python을 설정합니다. 프로젝트폴더 &gt; .vscode &gt; settings.json을 다음과 같이 저장한 후, VSCODE를 재실행합니다. MacOS/Linux { &quot;python.pythonPath&quot;: &quot;.venv/bin/python&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } Windows 10 { &quot;python.pythonPath&quot;: &quot;.venv\\\\Scripts\\\\python.exe&quot;, &quot;git.ignoreLimitWarning&quot;: true, &quot;code-runner.executorMap&quot;: { &quot;python&quot;:&quot;$pythonPath $fullFileName&quot;, } } test.py에서 ctrl + alt+ n 을 누르면 virtualenv환경에서 실행되는 것을 확인할 수 있습니다. Terminal옆의 +버튼을 누르면 VirtualEnv으로 전환됩니다. 윈도10에서는 terminal을 powershell이 아닌 cmd를 선택해야 가상환경이 activate됩니다. terminal &gt; select default shell &gt; Command prompt 이후 pip install 패키지명으로 원하는 패키지를 install하면 됩니다.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ROOFTOP HERO" />
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">ROOFTOP HERO</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <time datetime="2019-09-30 00:00:00 +0900">September 30, 2019</time>
+    
+  </div>
+
+  <h1 class="post-title">VSCODE에서 Python VirtualEnv 실행하기</h1>
+  <div class="post-line"></div>
+
+  <p><br /></p>
+
+<blockquote>
+  <p>Visual Studio Code에서 VirtualEnv를 설정하고 Code Runner로 실행합니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>프로젝트를 생성하고자 하는 디렉토리를 만든 후 그 디렉토리 내에서 VSCODE를 실행합니다.</p>
+
+<p>VSCODE의 Extension을 클릭하여 Code runner를 설치합니다.</p>
+
+<p><img src="/images/posts/2019-09-30/vscode1.jpeg" alt="vscode1.jpeg" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">ctrl + alt+ n</code> 을 누르면 해당 python 파일을 실행합니다. 이 경우에는 시스템에서 default로 설정된 python으로 실행이 됩니다.</p>
+
+<p><img src="/images/posts/2019-09-30/vscode2.jpeg" alt="vscode2.jpeg" /></p>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">Terminal &gt; New Terminal</code>로 터미널을 연 후 다음과 같이 가상환경을 설정합니다.</p>
+
+<pre><code class="language-linux"># MacOS/Linux
+python3 -m venv .venv
+
+# Windows
+pip install virtualenv
+virtualenv .venv 
+</code></pre>
+
+<p><img src="/images/posts/2019-09-30/vscode3.jpeg" alt="vscode3.jpeg" /></p>
+
+<p>VSCODE에서 맥에서는 <code class="language-plaintext highlighter-rouge">command + shift + p</code>, 윈도에서는 <code class="language-plaintext highlighter-rouge">ctrl + shift + p</code>를 눌러 command palette에서 <code class="language-plaintext highlighter-rouge">Python&gt;Select Interpreter</code>를 선택합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">(.venv':venv)</code>인 python을 선택합니다.</p>
+
+<p><img src="/images/posts/2019-09-30/vscode4.jpeg" alt="vscode4.jpeg" /></p>
+
+<hr />
+
+<p>이제 Code Runner에 VirtaulEnv의 python을 설정합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">프로젝트폴더 &gt; .vscode &gt; settings.json</code>을 다음과 같이 저장한 후, VSCODE를 재실행합니다.</p>
+
+<ul>
+  <li>MacOS/Linux</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"python.pythonPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">".venv/bin/python"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"git.ignoreLimitWarning"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code-runner.executorMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"python"</span><span class="p">:</span><span class="s2">"$pythonPath $fullFileName"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+<p><br /></p>
+
+<ul>
+  <li>Windows 10</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"python.pythonPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">".venv</span><span class="se">\\</span><span class="s2">Scripts</span><span class="se">\\</span><span class="s2">python.exe"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"git.ignoreLimitWarning"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code-runner.executorMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"python"</span><span class="p">:</span><span class="s2">"$pythonPath $fullFileName"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><br /></p>
+
+<p>test.py에서 <code class="language-plaintext highlighter-rouge">ctrl + alt+ n</code> 을 누르면 virtualenv환경에서 실행되는 것을 확인할 수 있습니다.</p>
+
+<p><img src="/images/posts/2019-09-30/vscode5.jpeg" alt="vscode5.jpeg" /></p>
+
+<p>Terminal옆의 <code class="language-plaintext highlighter-rouge">+</code>버튼을 누르면 VirtualEnv으로 전환됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>윈도10에서는 terminal을 powershell이 아닌 cmd를 선택해야 가상환경이 activate됩니다. 
+terminal &gt; select default shell &gt; Command prompt
+</code></pre></div></div>
+<p><br />
+<img src="/images/posts/2019-09-30/vscode6.jpeg" alt="vscode6.jpeg" /></p>
+
+<p>이후 <code class="language-plaintext highlighter-rouge">pip install 패키지명</code>으로 원하는 패키지를 install하면 됩니다.</p>
+
+<hr />
+
+
+</div>
+
+
+
+<div class="pagination">
+  
+    <a href="/2019/10/02/Review-of-book-way-to-agile" class="left arrow">&#8592;</a>
+  
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-10-19 16:44:53 +0900">2020</time> ROOFTOP HERO. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>

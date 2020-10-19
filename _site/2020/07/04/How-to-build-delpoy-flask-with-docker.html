@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Docker로 Flask를 build하고 배포하기 | ROOFTOP HERO</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Docker로 Flask를 build하고 배포하기" />
+<meta name="author" content="Rooftop Hero" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="초간단 Flask 웹서버를 Docker로 빌드하고 실행합니다. 먼저 가상화 환경을 만듭니다. VSCODE에서 Python VirtualEnv 실행하기를 참조하세요. 위의 폴더 안에 requirement.txt를 만듭니다. flask flask_cors uwsgi flask_cors : flask에서 교차 출처 리소스 공유(Cross-Origin Resourcing Sharing : CORS) 문제를 해결합니다. uwsgi : Flask의 내장서버인 werkzeug서버는 단일스레드이며 테스트용도 이외에는 적합하지 않으며 대신 uWSGI서버를 사용할 수 있습니다. 윈도10에서는 현재까지는 사용할 수 없습니다. pip install -r requirement.txt app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) 다음과 같이 실행합니다. export FLASK_APP=app.py flask run 플라스크에서 애플리케이션의 default name은 app이며, 이 경우 export FLASK_APP 지정을 생략할 수 있습니다. FLASK_DEBUG=1 flask run FLASK_DEBUG=1 옵션을 줄 경우 내용을 수정하고 저장할 경우 서버가 자동으로 reload 됩니다 http://127.0.0.1:5000/에 접속해서 정상적으로 작동하는지 확인합니다. uwsgi.ini [uwsgi] http = : 5000 wsgi-file = app.py single-interpreter = true enable-threads = true master = true port를 5000으로 설정했습니다. app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) application = app uWSGI에서의 default name은 application입니다. 그래서 마지막줄에 application = app 추가했습니다. uWSGI server는 다음과 같이 실행합니다. uwsgi --ini uwsgi.ini Dockerfile을 다음과 같이 만듭니다. FROM python:3.6.4 COPY . /app WORKDIR /app RUN pip install -r requirement.txt CMD [&quot;uwsgi&quot;, &quot;uwsgi.ini&quot;] 정리하면 파일구성은 다음과 같습니다. docker build -t test_flask_docker . docker container run -p 8080:5000 -it test_flask_docker http://127.0.0.1:8080/에 접속해서 정상적으로 작동하는 것을 확인합니다." />
+<meta property="og:description" content="초간단 Flask 웹서버를 Docker로 빌드하고 실행합니다. 먼저 가상화 환경을 만듭니다. VSCODE에서 Python VirtualEnv 실행하기를 참조하세요. 위의 폴더 안에 requirement.txt를 만듭니다. flask flask_cors uwsgi flask_cors : flask에서 교차 출처 리소스 공유(Cross-Origin Resourcing Sharing : CORS) 문제를 해결합니다. uwsgi : Flask의 내장서버인 werkzeug서버는 단일스레드이며 테스트용도 이외에는 적합하지 않으며 대신 uWSGI서버를 사용할 수 있습니다. 윈도10에서는 현재까지는 사용할 수 없습니다. pip install -r requirement.txt app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) 다음과 같이 실행합니다. export FLASK_APP=app.py flask run 플라스크에서 애플리케이션의 default name은 app이며, 이 경우 export FLASK_APP 지정을 생략할 수 있습니다. FLASK_DEBUG=1 flask run FLASK_DEBUG=1 옵션을 줄 경우 내용을 수정하고 저장할 경우 서버가 자동으로 reload 됩니다 http://127.0.0.1:5000/에 접속해서 정상적으로 작동하는지 확인합니다. uwsgi.ini [uwsgi] http = : 5000 wsgi-file = app.py single-interpreter = true enable-threads = true master = true port를 5000으로 설정했습니다. app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) application = app uWSGI에서의 default name은 application입니다. 그래서 마지막줄에 application = app 추가했습니다. uWSGI server는 다음과 같이 실행합니다. uwsgi --ini uwsgi.ini Dockerfile을 다음과 같이 만듭니다. FROM python:3.6.4 COPY . /app WORKDIR /app RUN pip install -r requirement.txt CMD [&quot;uwsgi&quot;, &quot;uwsgi.ini&quot;] 정리하면 파일구성은 다음과 같습니다. docker build -t test_flask_docker . docker container run -p 8080:5000 -it test_flask_docker http://127.0.0.1:8080/에 접속해서 정상적으로 작동하는 것을 확인합니다." />
+<link rel="canonical" href="http://localhost:4000/2020/07/04/How-to-build-delpoy-flask-with-docker" />
+<meta property="og:url" content="http://localhost:4000/2020/07/04/How-to-build-delpoy-flask-with-docker" />
+<meta property="og:site_name" content="ROOFTOP HERO" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-04T00:00:00+09:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2020/07/04/How-to-build-delpoy-flask-with-docker","headline":"Docker로 Flask를 build하고 배포하기","dateModified":"2020-07-04T00:00:00+09:00","datePublished":"2020-07-04T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/07/04/How-to-build-delpoy-flask-with-docker"},"author":{"@type":"Person","name":"Rooftop Hero"},"description":"초간단 Flask 웹서버를 Docker로 빌드하고 실행합니다. 먼저 가상화 환경을 만듭니다. VSCODE에서 Python VirtualEnv 실행하기를 참조하세요. 위의 폴더 안에 requirement.txt를 만듭니다. flask flask_cors uwsgi flask_cors : flask에서 교차 출처 리소스 공유(Cross-Origin Resourcing Sharing : CORS) 문제를 해결합니다. uwsgi : Flask의 내장서버인 werkzeug서버는 단일스레드이며 테스트용도 이외에는 적합하지 않으며 대신 uWSGI서버를 사용할 수 있습니다. 윈도10에서는 현재까지는 사용할 수 없습니다. pip install -r requirement.txt app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) 다음과 같이 실행합니다. export FLASK_APP=app.py flask run 플라스크에서 애플리케이션의 default name은 app이며, 이 경우 export FLASK_APP 지정을 생략할 수 있습니다. FLASK_DEBUG=1 flask run FLASK_DEBUG=1 옵션을 줄 경우 내용을 수정하고 저장할 경우 서버가 자동으로 reload 됩니다 http://127.0.0.1:5000/에 접속해서 정상적으로 작동하는지 확인합니다. uwsgi.ini [uwsgi] http = : 5000 wsgi-file = app.py single-interpreter = true enable-threads = true master = true port를 5000으로 설정했습니다. app.py from flask import Flask, jsonify from flask_cors import CORS app = Flask(__name__) CORS(app) @app.route(&#39;/&#39;) def home(): return jsonify( text=&#39;Hello, world&#39;, id = &#39;exharo&#39;, no = 203 ) application = app uWSGI에서의 default name은 application입니다. 그래서 마지막줄에 application = app 추가했습니다. uWSGI server는 다음과 같이 실행합니다. uwsgi --ini uwsgi.ini Dockerfile을 다음과 같이 만듭니다. FROM python:3.6.4 COPY . /app WORKDIR /app RUN pip install -r requirement.txt CMD [&quot;uwsgi&quot;, &quot;uwsgi.ini&quot;] 정리하면 파일구성은 다음과 같습니다. docker build -t test_flask_docker . docker container run -p 8080:5000 -it test_flask_docker http://127.0.0.1:8080/에 접속해서 정상적으로 작동하는 것을 확인합니다.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ROOFTOP HERO" />
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">ROOFTOP HERO</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <time datetime="2020-07-04 00:00:00 +0900">July 04, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">Docker로 Flask를 build하고 배포하기</h1>
+  <div class="post-line"></div>
+
+  <p><br /></p>
+
+<blockquote>
+  <p>초간단 Flask 웹서버를 Docker로 빌드하고 실행합니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>먼저 가상화 환경을 만듭니다. 
+<a href="/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE" target="_blank">VSCODE에서 Python VirtualEnv 실행하기</a>를 참조하세요.</p>
+
+<p>위의 폴더 안에 <code class="language-plaintext highlighter-rouge">requirement.txt</code>를 만듭니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flask
+flask_cors
+uwsgi
+</code></pre></div></div>
+<p><br /></p>
+<ul>
+  <li>flask_cors : flask에서 교차 출처 리소스 공유(Cross-Origin Resourcing Sharing : CORS) 문제를 해결합니다.</li>
+  <li>uwsgi : Flask의 내장서버인 werkzeug서버는 단일스레드이며 테스트용도 이외에는 적합하지 않으며 대신 uWSGI서버를 사용할 수 있습니다. 윈도10에서는 현재까지는 사용할 수 없습니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install -r requirement.txt
+</code></pre></div></div>
+<p><br />
+<strong>app.py</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s">'Hello, world'</span><span class="p">,</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="s">'exharo'</span><span class="p">,</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="mi">203</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+다음과 같이 실행합니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export FLASK_APP=app.py
+flask run
+</code></pre></div></div>
+<p><br />
+플라스크에서 애플리케이션의 default name은 <code class="language-plaintext highlighter-rouge">app</code>이며, 이 경우 export FLASK_APP 지정을 생략할 수 있습니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLASK_DEBUG=1 flask run
+</code></pre></div></div>
+<p><br />
+FLASK_DEBUG=1 옵션을 줄 경우 내용을 수정하고 저장할 경우 서버가 자동으로 reload 됩니다
+<br />
+<a href="http://127.0.0.1:5000/" target="_blank">http://127.0.0.1:5000/</a>에 접속해서 정상적으로 작동하는지 확인합니다.
+<br />
+<br />
+<img src="/images/posts/2020-07-04/result.jpeg" alt="result.jpeg" width="100%" height="50%" class="center" />
+<br />
+<strong>uwsgi.ini</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[uwsgi]
+http = : 5000
+wsgi-file = app.py
+single-interpreter = true
+enable-threads = true
+master = true
+</code></pre></div></div>
+<p><br />
+port를 5000으로 설정했습니다.
+<br /></p>
+
+<p><strong>app.py</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s">'Hello, world'</span><span class="p">,</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="s">'exharo'</span><span class="p">,</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="mi">203</span>
+    <span class="p">)</span>
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">app</span>
+</code></pre></div></div>
+<p><br />
+uWSGI에서의 default name은 application입니다. 그래서 마지막줄에 application = app 추가했습니다.
+<br />
+uWSGI server는 다음과 같이 실행합니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uwsgi --ini uwsgi.ini
+</code></pre></div></div>
+<p><br />
+Dockerfile을 다음과 같이 만듭니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM python:3.6.4
+
+COPY . /app
+
+WORKDIR /app 
+
+RUN pip install -r requirement.txt
+
+CMD ["uwsgi", "uwsgi.ini"]
+</code></pre></div></div>
+<p><br />
+정리하면 파일구성은 다음과 같습니다.</p>
+
+<p><img src="/images/posts/2020-07-04/tree.jpeg" alt="tree.jpeg" width="100%" height="80%" class="center" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build -t test_flask_docker .
+docker container run -p 8080:5000 -it test_flask_docker
+</code></pre></div></div>
+<p><br />
+<a href="http://127.0.0.1:8080/" target="_blank">http://127.0.0.1:8080/</a>에 접속해서 정상적으로 작동하는 것을 확인합니다.</p>
+
+<hr />
+
+
+</div>
+
+
+
+<div class="pagination">
+  
+    <a href="/2020/10/12/Pandas-Dataframe-Minipulation-using-SQL" class="left arrow">&#8592;</a>
+  
+  
+    <a href="/2020/01/30/Spring-web-development-on-ubuntu" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-10-19 16:44:53 +0900">2020</time> ROOFTOP HERO. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>
