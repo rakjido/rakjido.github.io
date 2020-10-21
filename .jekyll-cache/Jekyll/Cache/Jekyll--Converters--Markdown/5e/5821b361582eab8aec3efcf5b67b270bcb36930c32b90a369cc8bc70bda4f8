@@ -1,0 +1,51 @@
+I"�<p><img src="/images/posts/2019-10-28/elegant_navigation.jpg" alt="elegant-navigation.jpg" width="50%" height="50%" class="center" /></p>
+
+<p>그럭저럭 돌아가는 서비스 만들기 세미나는 두 부분으로 나누어 진행되었습니다.</p>
+
+<p>첫번째는 중국의 편리한 결제 상황, 둘째는 마이크로서비스를 구성한 사례에 관한 이야기입니다.</p>
+
+<p>한국에서는 요즘 Kiosk를 도입하고 있는데 주문 하나 하려면 스무고개를 넘어야 합니다. 반면 중국은 테이블에 있는 QR코드를 찍어 주문하고 결제하면 끝나고 주문 알람도 핸드폰으로 온다고 합니다. 김형준 CTO에 의하면 한국에서의 서비스가 불편한 이유는 어떤 제품이나 서비스를 사용할 때마다 별도의 앱을 설치하고 사용자 인증하고 결제도 등록해야 하는데 중국의 위챗은 사업자들이 mini program을 등록할 수 있습니다. 이 경우 위챗에서 사용자인증과 결제가 가능하므로 사업자는 HTML, JS만 사용해서 mini program만 구현해서 배포하면 됩니다. 즉, 위챗과 알리페이 정도가 사실상의 결제 표준이 되었기 때문에 seamless한 결제가 가능해 집니다.</p>
+
+<p><img src="/images/posts/2019-10-28/ordinary_life_service.jpg" alt="elegant-navigation.jpg" width="70%" height="70%" class="center" /></p>
+
+<p><a href="https://www.popit.kr/wechat-mini-program-%EA%B3%84%EC%A0%95-%EB%A7%8C%EB%93%A4%EA%B8%B0/" target="_blank">WeChat Mini Program(小程序) 개발 계정 만들기</a> 참조</p>
+
+<p>정리하면 중국에서 지갑없이 하루종일 자연스러운 생활이 가능한 이유는 다음과 같습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 혁신적인 서비스의 파급효과가 미국이나 일본같은 국가보다 중국이나 러시아와 같은 국가에서 강하게 나타나는 이유는 기존에 해당 서비스가 없었기 때문이다.
+2. 인터넷서비스에서 텐센트와 알리바바가 독과점 체제를 형성하고 있다.
+3. weChat의 mini program와 같은 방식이 가능한 이유는 구글이나 애플이 중국내에서 영향력이 약하기 때문이다. 
+</code></pre></div></div>
+<p><br /></p>
+
+<p>인상적인 부분은 weChat에서 mini program이 1년만에 100만개가 등록되었다 하는데,  weChat은 생태계를 만들어가는 공공재의 역할을 어느 정도 하고 있다는 것입니다.</p>
+
+<p>한국은 결제서비스의 춘추전국시대입니다. 어떤 사이트나 서비스를 이용할 때마다 어떨 때는 네이버페이, 어떨 때는 스마일페이 등, 카드를 쓸 때도 PG들의 복잡한 프로그램이나 개별 은행앱을 사용해야 합니다. 그 이유는 기존 사업자들의 이해관계가 복잡하게 얽혀있고, 결제 서비스가 ‘Winner takes it all’이 될 수 있기 때문입니다. 적어도 자신의 비즈니스 영역을 지키기 위해서라도 필사적일 수 밖에 없습니다.</p>
+
+<p><br />
+주요 결제서비스에 대해서 <code class="language-plaintext highlighter-rouge">사실상의 표준화</code>를 인정하는 대신 <code class="language-plaintext highlighter-rouge">일정 수준의 공공성</code>을 충족하도록 하는 방안이 필요하다 생각합니다.</p>
+
+<hr />
+
+<p>두번째 이야기는 마이크로서비스와 애자일의 실제 사례입니다.</p>
+
+<p>중국내 매출이 500억인 어느 한국회사의 중국서비스는 테이블만 675개였다 합니다.</p>
+
+<p>윈도환경하의 기존 시스템을 대체하기 위해 마이크로서비스와 애자일을 도입하였습니다.</p>
+
+<p>(중국은 점심시간 2시간이어서 낮잠을 1시간 잔다는데 생산성 향상을 위한 중요한 포인트가 아닐까 생각합니다.)</p>
+
+<p>개발자가 시스템이나 리눅스등을 잘 모르므로 클라우드와 kubernetes로 개발환경을 구성하고 개발자들의 개발역량이 높지 않아 개발자당 테이블 하나를 구현하는 방식으로 마이크로서비스를 구축했다 합니다. 부족하거나 아쉬운 부분은 다시 구현하는 식으로 애자일이 적용되었습니다.</p>
+
+<p>인상적인 부분은 다음과 같습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 마이크로 서비스는 Transaction을 쓸 수 없다. 그럼 rollback은 어떻게 하느가 질문했더니 하지 않는답니다. 그 대신 Event Queue로 하는 관리가 중요하다 합니다. 
+2. 마이크로 서비스는 JOIN없이 중복테이블을 만들거나 Service call을 통해 사용한다. 중복 테이블은 필요한 경우 snapshop을 써서 JSON으로 전달하여 통합성을 유지한다.
+3. 애자일은 실수에 대한 용인이 필요하다. 따라서 경영진이 개발자를 문책하지 않고 그 실수의 결과를 받아들일 수 있는 자세가 중요하다. 
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>해당 개발자의 업무 내용이 단순화되는 대신 그 통합성을 유지하기 위한 관리는 복잡해질 것입니다. 마이크로 서비스는 개발의 outsourcing이나 API startup의 활성화로 이어질 수도 있을 듯 합니다.</p>
+
+:ET

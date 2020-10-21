@@ -1,0 +1,122 @@
+I"�<p><br /></p>
+
+<blockquote>
+  <p>초간단 Flask 웹서버를 Docker로 빌드하고 실행합니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>먼저 가상화 환경을 만듭니다. 
+<a href="/2019/09/30/How-to-exectue-Python-VirtualEnv-in-VSCODE" target="_blank">VSCODE에서 Python VirtualEnv 실행하기</a>를 참조하세요.</p>
+
+<p>위의 폴더 안에 <code class="language-plaintext highlighter-rouge">requirement.txt</code>를 만듭니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flask
+flask_cors
+uwsgi
+</code></pre></div></div>
+<p><br /></p>
+<ul>
+  <li>flask_cors : flask에서 교차 출처 리소스 공유(Cross-Origin Resourcing Sharing : CORS) 문제를 해결합니다.</li>
+  <li>uwsgi : Flask의 내장서버인 werkzeug서버는 단일스레드이며 테스트용도 이외에는 적합하지 않으며 대신 uWSGI서버를 사용할 수 있습니다. 윈도10에서는 현재까지는 사용할 수 없습니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install -r requirement.txt
+</code></pre></div></div>
+<p><br />
+<strong>app.py</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s">'Hello, world'</span><span class="p">,</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="s">'exharo'</span><span class="p">,</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="mi">203</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+<p><br />
+다음과 같이 실행합니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export FLASK_APP=app.py
+flask run
+</code></pre></div></div>
+<p><br />
+플라스크에서 애플리케이션의 default name은 <code class="language-plaintext highlighter-rouge">app</code>이며, 이 경우 export FLASK_APP 지정을 생략할 수 있습니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLASK_DEBUG=1 flask run
+</code></pre></div></div>
+<p><br />
+FLASK_DEBUG=1 옵션을 줄 경우 내용을 수정하고 저장할 경우 서버가 자동으로 reload 됩니다
+<br />
+<a href="http://127.0.0.1:5000/" target="_blank">http://127.0.0.1:5000/</a>에 접속해서 정상적으로 작동하는지 확인합니다.
+<br />
+<br />
+<img src="/images/posts/2020-07-04/result.jpeg" alt="result.jpeg" width="100%" height="50%" class="center" />
+<br />
+<strong>uwsgi.ini</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[uwsgi]
+http = : 5000
+wsgi-file = app.py
+single-interpreter = true
+enable-threads = true
+master = true
+</code></pre></div></div>
+<p><br />
+port를 5000으로 설정했습니다.
+<br /></p>
+
+<p><strong>app.py</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span> <span class="nn">flask_cors</span> <span class="kn">import</span> <span class="n">CORS</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">CORS</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span>
+        <span class="n">text</span><span class="o">=</span><span class="s">'Hello, world'</span><span class="p">,</span>
+        <span class="nb">id</span> <span class="o">=</span> <span class="s">'exharo'</span><span class="p">,</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="mi">203</span>
+    <span class="p">)</span>
+
+<span class="n">application</span> <span class="o">=</span> <span class="n">app</span>
+</code></pre></div></div>
+<p><br />
+uWSGI에서의 default name은 application입니다. 그래서 마지막줄에 application = app 추가했습니다.
+<br />
+uWSGI server는 다음과 같이 실행합니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uwsgi --ini uwsgi.ini
+</code></pre></div></div>
+<p><br />
+Dockerfile을 다음과 같이 만듭니다.
+<br /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM python:3.6.4
+
+COPY . /app
+
+WORKDIR /app 
+
+RUN pip install -r requirement.txt
+
+CMD ["uwsgi", "uwsgi.ini"]
+</code></pre></div></div>
+<p><br />
+정리하면 파일구성은 다음과 같습니다.</p>
+
+<p><img src="/images/posts/2020-07-04/tree.jpeg" alt="tree.jpeg" width="100%" height="80%" class="center" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build -t test_flask_docker .
+docker container run -p 8080:5000 -it test_flask_docker
+</code></pre></div></div>
+<p><br />
+<a href="http://127.0.0.1:8080/" target="_blank">http://127.0.0.1:8080/</a>에 접속해서 정상적으로 작동하는 것을 확인합니다.</p>
+
+<hr />
+
+:ET

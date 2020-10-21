@@ -1,0 +1,107 @@
+I"�%<blockquote>
+  <p>데이터베이스 설정 정보를 xml로 분리해 보자</p>
+</blockquote>
+
+<p>Python에서 데이터베이스 설정 정보를 config.xml 파일로 별도로 설정해 보았습니다.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</span>
+<span class="nt">&lt;Config&gt;</span>
+    <span class="nt">&lt;DATABASE&gt;</span>
+        <span class="nt">&lt;host&gt;</span>localhost<span class="nt">&lt;/host&gt;</span>
+        <span class="nt">&lt;port&gt;</span>3306<span class="nt">&lt;/port&gt;</span>
+        <span class="nt">&lt;userid&gt;</span>user<span class="nt">&lt;/userid&gt;</span>
+        <span class="nt">&lt;password&gt;</span>password<span class="nt">&lt;/password&gt;</span>
+        <span class="nt">&lt;db&gt;</span>db<span class="nt">&lt;/db&gt;</span>
+    <span class="nt">&lt;/DATABASE&gt;</span>
+<span class="nt">&lt;/Config&gt;</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>config.xml에서 데이터베이스 정보를 가져와서 접속하고 query를 실행할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="n">elemTree</span>
+
+<span class="kn">import</span> <span class="nn">pymysql</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span> 
+
+<span class="k">def</span> <span class="nf">db_connect</span><span class="p">():</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">elemTree</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="s">'./config.xml'</span><span class="p">)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">getroot</span><span class="p">()</span>
+    <span class="n">dbinfo</span> <span class="o">=</span> <span class="n">root</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./DATABASE'</span><span class="p">)</span>
+
+    <span class="n">host</span> <span class="o">=</span> <span class="n">dbinfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./host'</span><span class="p">).</span><span class="n">text</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dbinfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./port'</span><span class="p">).</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">userid</span> <span class="o">=</span> <span class="n">dbinfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./userid'</span><span class="p">).</span><span class="n">text</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">dbinfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./password'</span><span class="p">).</span><span class="n">text</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">dbinfo</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'./db'</span><span class="p">).</span><span class="n">text</span>
+
+    <span class="k">try</span><span class="p">:</span> 
+        <span class="n">conn</span> <span class="o">=</span> <span class="n">pymysql</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">userid</span><span class="p">,</span> 
+                            <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">charset</span><span class="o">=</span><span class="s">'utf8'</span><span class="p">,</span>
+                            <span class="n">autocommit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cursorclass</span><span class="o">=</span><span class="n">pymysql</span><span class="p">.</span><span class="n">cursors</span><span class="p">.</span><span class="n">DictCursor</span> <span class="p">)</span>
+    <span class="k">except</span> <span class="nb">BaseException</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"DB connection Error"</span><span class="p">)</span>
+
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">(</span><span class="n">pymysql</span><span class="p">.</span><span class="n">cursors</span><span class="p">.</span><span class="n">DictCursor</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span>
+
+
+<span class="k">def</span> <span class="nf">db_select</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">db_connect</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cursor</span><span class="p">.</span><span class="n">fetchall</span><span class="p">())</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">db_insert</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">db_connect</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">db_update</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">db_connect</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">db_delete</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">db_connect</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+
+</code></pre></div></div>
+
+<p>다음과 같이 사용할 수 있습니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">query</span> <span class="o">=</span> <span class="s">"""
+            DELETE FROM EQUITY_INFO
+            WHERE EQUITY_CODE='AMZN'
+            """</span>
+    <span class="n">db_delete</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s">"""
+            INSERT INTO EQUITY_INFO (EQUITY_CODE, EQUITY_NAME, EXCHANGE_CODE, CURRENCY_CODE)
+            VALUES('AMZN', 'Kingkong', 'SP500', 'USD')
+            """</span>
+
+    <span class="n">db_insert</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s">"""
+            UPDATE EQUITY_INFO 
+            SET EQUITY_NAME = 'Amazon.com Inc'
+            WHERE EQUITY_CODE='AMZN'
+            """</span>
+
+
+    <span class="n">db_update</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">db_select</span><span class="p">(</span><span class="s">"select * from equity_info"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">head</span><span class="p">())</span>
+
+</code></pre></div></div>
+
+:ET

@@ -5,10 +5,207 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Oct 2020 16:44:53 +0900</pubDate>
-    <lastBuildDate>Mon, 19 Oct 2020 16:44:53 +0900</lastBuildDate>
+    <pubDate>Wed, 21 Oct 2020 13:58:43 +0900</pubDate>
+    <lastBuildDate>Wed, 21 Oct 2020 13:58:43 +0900</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
 
+    
+      <item>
+        <title>Front End 유용한 사이트 모음</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Web 개발 중 디자인 측면에서 유용한 사이트들을 정리해 보았습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;w3schoolscom&quot;&gt;W3Schools.com&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+모두가 다 알고 있는 웹페이지를 구성하는 HTML, CSS, Javascript 기초를 Step by Step으로 학습할 수 있는 곳입니다. Python이나 PHP등 다른 언어도 학습할 수 있으나 우리들의 뇌리에는 HTML과 CSS가 깊이 각인되어 있지요. 
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.w3schools.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;https://www.w3schools.com/&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/www.w3schools.com_.png&quot; alt=&quot;www.w3schools.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;boostrap&quot;&gt;Boostrap&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+Bootsrap 웹을 쉽게, 그리고 반응형(Responsive)으로 디자인 할 수 있도록 하는 툴킷입니다. 
+무료 Bootstrap 템플릿은  &lt;a href=&quot;https://themewagon.com/theme_tag/free/&quot; target=&quot;_blank&quot;&gt;여기&lt;/a&gt;에서 다운로드할 수 있습니다.&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://getbootstrap.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;https://getbootstrap.com/&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/getbootstrap.com_.png&quot; alt=&quot;getbootstrap.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;codepenio&quot;&gt;Codepen.io&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+이곳도 모르는 사람이 없죠. 웹린이가 Bootstrap 템플릿에서 헤매다 codepen.io을 파헤치며 마침내 무림의 고수로 성장한다는 전설이 깃든 곳입니다.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://codepen.io/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;https://codepen.io/&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/codepen.io_.png&quot; alt=&quot;codepen.io_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;chrome-devtools&quot;&gt;Chrome DevTools&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+웹개발의 필수툴입니다. 크롬 개발자도구 없는 웹개발이 가능할까요?
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=2Sp9rGmQsBA&amp;amp;list=PLuHgQVnccGMB-cpwPv6dIcvW6DnZzWM4f&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;생활코딩 크롬 개발자도구 강의&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+이 페이지에서 사용한 스크린샷도 &lt;a href=&quot;https://junwoo45.github.io/2020-07-28-chrome_devtools/&quot; target=&quot;_blank&quot;&gt;크롬 개발자도구를 사용해&lt;/a&gt; 찍었습니다. 
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;무료-사진-사이트&quot;&gt;무료 사진 사이트&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://unsplash.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Unsplash.com&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/unsplash.com_s_photos_desk.png&quot; alt=&quot;unsplash.com_s_photos_desk.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://isorepublic.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;ISO Republic&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/isorepublic.com_.png&quot; alt=&quot;isorepublic.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.pexels.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Pexels.com&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/www.pexels.com_ko-kr_.png&quot; alt=&quot;www.pexels.com_ko-kr_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://pixabay.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;pixabay.com&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/pixabay.com_.png&quot; alt=&quot;pixabay.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;무료-icon&quot;&gt;무료 Icon&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://ionicons.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Ionicons&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/ionicons.com_.png&quot; alt=&quot;ionicons.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://thenounproject.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;The noun project&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/thenounproject.com_.png&quot; alt=&quot;thenounproject.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;색상조합&quot;&gt;색상조합&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://color.adobe.com/ko/explore&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;color.adobe.com&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/color.adobe.com_.png&quot; alt=&quot;color.adobe.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.colorcombos.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;colorcombos.com&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/www.colorcombos.com_.png&quot; alt=&quot;www.colorcombos.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;font&quot;&gt;Font&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://fonts.google.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Google Fonts&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/fonts.google.com_.png&quot; alt=&quot;fonts.google.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.dafont.com/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Dafont&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/www.dafont.com_.png&quot; alt=&quot;www.dafont.com_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;material-design&quot;&gt;Material Design&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+머티리얼 디자인은 통해 그들의 플랫폼과 서비스가 제공하는 모든 것들이 하나의 통일된 사용자 경험을 줄 수 있도록 함을써 일관적인 브랜딩(Branding)을 가능하게 합니다. 머티리얼 디자인이 왜 필요한가는 &lt;a href=&quot;http://media.fastcampus.co.kr/insight/branding-google/&quot; target=&quot;_blank&quot;&gt;이 글&lt;/a&gt;을 읽어보시기 바랍니다.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://material.io/design/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Google Material Design&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/material.io_design_.png&quot; alt=&quot;material.io_design_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;a href=&quot;https://www.microsoft.com/design/fluent/#/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Microsoft Fluent Design&lt;/strong&gt;&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/images/posts/2020-10-21/www.microsoft.com_design_fluent_.png&quot; alt=&quot;www.microsoft.com_design_fluent_.png&quot; /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;etc&quot;&gt;ETC&lt;/h3&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+마이크로소프트의 웹기반 솔루션으로, 유저 인터페이스를 그린 종이를 사진을 찍어 업로드 하면 딥러닝이 자동으로 디자인 패턴을 탐지하여 해당 HTML 컴퍼넌트로 변환하며, 사용자는 HTML코드를 다운로드할 수 있습니다.&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://sketch2code.azurewebsites.net/&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Sketch2Code&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2020-10-21/sketch2code.azurewebsites.net_.png&quot; alt=&quot;sketch2code.azurewebsites.net_.png&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+마지막으로 웹디자이너가 참고할 사이트는 &lt;a href=&quot;http://designbase.co.kr/%EC%9B%B9%EB%94%94%EC%9E%90%EC%9D%B8%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90-%EC%B0%B8%EA%B3%A0%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C/&quot; target=&quot;_blank&quot;&gt;이곳&lt;/a&gt;에 잘 정리되어 있습니다.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020/10/21/Front-End-Useful-Sites</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/10/21/Front-End-Useful-Sites</guid>
+      </item>
     
       <item>
         <title>Pandas Dataframe에서 SQL 사용하기</title>
@@ -877,6 +1074,8 @@ terminal &amp;gt; select default shell &amp;gt; Command prompt
       </item>
     
 
+    
+      
     
       
     
