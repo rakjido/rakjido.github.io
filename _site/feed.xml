@@ -5,10 +5,112 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Oct 2020 13:58:43 +0900</pubDate>
-    <lastBuildDate>Wed, 21 Oct 2020 13:58:43 +0900</lastBuildDate>
+    <pubDate>Tue, 17 Nov 2020 11:30:33 +0900</pubDate>
+    <lastBuildDate>Tue, 17 Nov 2020 11:30:33 +0900</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
 
+    
+      <item>
+        <title>Django 개요와 장단점</title>
+        <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Django에 대한 개요와 장·단점에 대한 견해&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;개요&quot;&gt;개요&lt;/h3&gt;
+
+&lt;p&gt;Django는 Python을 사용한 서버사이드 웹프레임워크이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;개인적으로 볼 때, Django는 Agile한 개발과 분업에 용이하도록 설계된 프레임워크이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+최소기능제품(MVP : Minimum Viable Product)를 만든 후 타겟의 반응을 보면서 계속 수정해야 할 상황이지만 개발자원은 한정되어 있을 때 적합하다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;2019년 12월 기준, Github에서 가장 인기있는 백엔드 프레임워크 순위에서 Laravel, Flask, ExpressJS에 이어 4위에 랭크되어 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2020-11-17/popular_framework.png&quot; alt=&quot;popular_framework.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;장점&quot;&gt;장점&lt;/h3&gt;
+
+&lt;h4 id=&quot;1-django-admin을-이용한-빠른-요건-구현&quot;&gt;1. Django Admin을 이용한 빠른 요건 구현&lt;/h4&gt;
+
+&lt;p&gt;Django Admin을 이용하여 빠르게 요건을 구현한 후 수정해 나갈 수 있다는 점은 Django의 최대 장점 중 하나이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/hannal.cha/django-admin-81652288&quot; target=&quot;_blank&quot;&gt;날로 먹는 Django admin 활용&lt;/a&gt;을 참고하면 이러한 장점을 잘 이해할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-app-단위의-독립적인-구성&quot;&gt;2. App 단위의 독립적인 구성&lt;/h4&gt;
+
+&lt;p&gt;Django의 프로젝트는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;App&lt;/code&gt;이라는 단위들로 구성된다.&lt;/p&gt;
+
+&lt;p&gt;쇼핑몰을 예를 든다면 다음과 같은 기능들이 필요하다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Shop
+    - Account 
+    - Product
+    - Order
+    - Delivery
+    - Admin_account
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Django에서는 Account, Product등을 별도의 App으로 구성한다.&lt;/p&gt;
+
+&lt;p&gt;App내에서는 가능한 한 독립적인 환경을 구성한다.&lt;/p&gt;
+
+&lt;p&gt;하나의 App은 각각 별도의 모델(Model), 템플릿(Template), 뷰(View)를 가진다. 이런 설정은 개발에서 분업을 용이하게 한다.
+Account는 프로그래머 A, Order는 프로그래머 B와 같이 배분한 후 완성하면 합체하기 편리하다. 
+이럴 때 흩어져 있는 static 파일을 모으기 위해 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;collectstatic&lt;/code&gt;을 사용한다.&lt;/p&gt;
+
+&lt;p&gt;이러한 기능들이 점점 커지고 복잡해 질 경우 App을 MSA(Micro Services Architecture)로 전환할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3-보안&quot;&gt;3. 보안&lt;/h4&gt;
+
+&lt;p&gt;또 다른 장점은 보안을 들 수 있다. 최근 많은 사람들이 선호하는 Flask는 직관적이고 간결하며 이해하기 용이하지만 (미처 생각이 미치지 않는) 보안의 문제점이 발생할 여지가 있다. 
+Django는 다양한 공격을 방지할 수 있는 기능들이 이미 구현되어 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;단점&quot;&gt;단점&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Django는 예상보다 러닝커브가 낮다. Spring Boot와 비교해도 아주 쉽다고 볼 수는 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Django의 모델은 빠른 기능 구현이 가능하지만 성능 이슈를 야기할 수 있다. Transaction이 많지 않은 도메인에 적합해 보인다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;Reference&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Learn/Server-side/Django/Introduction&quot; target=&quot;_blank&quot;&gt;Django 소개&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8FQ4zW_F_Iw&quot; target=&quot;_blank&quot;&gt;Most Popular Backend Frameworks 2012-2019&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 Nov 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020/11/17/Django-Overview</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/11/17/Django-Overview</guid>
+      </item>
     
       <item>
         <title>Front End 유용한 사이트 모음</title>
