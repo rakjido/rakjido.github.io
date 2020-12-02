@@ -77,7 +77,7 @@ REST API는 MVC 모델에서 V(View)가 분리될 때 legacy 시스템을 가장
 [어서와, SSR은 처음이지? (네이버 블로그 Node.js 기반의 Server-Side Rendering 적용기)](https://deview.kr/2020/sessions/403){:target="_blank"}은 Front End에서 Server Side Rendering을 적용할 때 Performance, QA등의 향상등이 있음을 보여주었다. Server Side Rendering을 한다면, (Legacy 시스템이 아니라면) Back End인 Spring Boot나 Django 등이 과연 필요한가에 대한 의문이 들었다.
 
 <br>
-[비동기 서버 그까이꺼, Request Scoping만 알면 끝!](https://deview.kr/2020/sessions/330){:target="_blank"}에서는 LINE Sticker store에 비동기 서버인 [Ameria](https://github.com/line/armeria)를 적용한 결과 Tomcat 서버보다 평균반응속도가 현격히 빨라진 사례를 소개하였다.
+[비동기 서버 그까이꺼, Request Scoping만 알면 끝!](https://deview.kr/2020/sessions/330){:target="_blank"}에서는 LINE Sticker store에 비동기 서버인 [Ameria](https://github.com/line/armeria){:target="_blank"}를 적용한 결과 Tomcat 서버보다 평균반응속도가 현격히 빨라진 사례를 소개하였다.
 
 <br>
 
@@ -89,5 +89,5 @@ REST API는 MVC 모델에서 V(View)가 분리될 때 legacy 시스템을 가장
 드론은 비행하는 로봇이다. 앞으로 자동차는 달리는 로봇이 될 것이다. Robotics는 배터리와 수소연료전지, 제어, 반도체, 그리고 AI와 big data등을 모두 견인할 수 있는 산업이다. 
 
 <br>
- [Learning to learn: the challenges of robot task learning](https://deview.kr/2020/sessions/327)와 같은 훌륭한 발표가 있었지만, 우선 진입장벽이 높은 로봇생태계에 개발자가 입문할 수 있는 로드맵과 교육환경이 필요해 보인다.
+ [Learning to learn: the challenges of robot task learning](https://deview.kr/2020/sessions/327){:target="_blank"}와 같은 훌륭한 발표가 있었지만, 우선 진입장벽이 높은 로봇생태계에 개발자가 입문할 수 있는 로드맵과 교육환경이 필요해 보인다.
 
