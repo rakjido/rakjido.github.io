@@ -87,6 +87,9 @@ Django는 다양한 공격을 방지할 수 있는 기능들이 이미 구현되
 
 <br>
 
+
+**다음** : [Django Blog 로드맵](/2020/12/14/Django-Blog-Minimal-Requirement-Specification)  
+
 ---
 
 #### Reference
@@ -94,3 +97,5 @@ Django는 다양한 공격을 방지할 수 있는 기능들이 이미 구현되
 [Django 소개](https://developer.mozilla.org/ko/docs/Learn/Server-side/Django/Introduction){:target="_blank"}
 
 [Most Popular Backend Frameworks 2012-2019](https://www.youtube.com/watch?v=8FQ4zW_F_Iw){:target="_blank"}
+
+

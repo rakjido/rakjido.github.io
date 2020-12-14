@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Django Blog 로드맵 | ROOFTOP HERO</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Django Blog 로드맵" />
+<meta name="author" content="Rooftop Hero" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification" />
+<meta property="og:url" content="http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification" />
+<meta property="og:site_name" content="ROOFTOP HERO" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-14T00:00:00+09:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification","datePublished":"2020-12-14T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification"},"author":{"@type":"Person","name":"Rooftop Hero"},"headline":"Django Blog 로드맵","dateModified":"2020-12-14T00:00:00+09:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- RSS -->
+  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="ROOFTOP HERO" />
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">ROOFTOP HERO</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/tags">Tags</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    
+      <br>
+      <time datetime="2020-12-14 00:00:00 +0900">December 14, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">Django Blog 로드맵</h1>
+  <div class="post-line"></div>
+
+  <p><br /></p>
+
+<blockquote>
+  <p>Django 웹 프레임워크 최소 기능을 정의하고 어떻게 구현할 것인가에 대한 로드맵을 그린다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<p>웹프레임워크를 빨리 파악하는 방법은 무엇일까.</p>
+
+<p>우선 어떤 웹페이지의 CRUD, 즉 생성(Create), 읽기(Read), 업데이트(Update), 삭제(Delete)를 어떻게 하는지 만들어 보고
+보안이 된 회원가입 기능(authentication)을 구현해보는 것이다.</p>
+
+<p>검색에서 상위 순위에 오르는 것은 효율적인 마케팅 수단이 되므로 검색엔진 최적화를 위해 Meta 태그와 Sitemap을 추가한다.</p>
+
+<p>로그파일은 장애를 파악할 수 있도록 text 파일로 저장한다.</p>
+
+<p>이 정도면 웹프레임워크의 <a href="https://brunch.co.kr/@jjollae/7" target="_blank">최소기능제품(Minimum Viable Product)</a>라 볼 수 있다.</p>
+
+<p>위의 기능을 Django와 Mysql 데이터베이스를 조합하여 구현할 것이다.</p>
+
+<p><br />
+2020년 12월 11일 기준 기업가치가 470억 달러로 평가되는 AirBnB도 최초의 MVP는 이랬다 한다. 용기를 내자(?)</p>
+
+<p><img src="/images/posts/2020-12-14/airbnb.png" alt="airbnb.png" /></p>
+
+<p>Agile한 개발을 위해서는 처음부터 <a href="https://brunch.co.kr/@jowlee/120" target="_blank">DevOps</a>를 구축해야 한다.
+PEP8 코드스타일을 따르고 비전관리툴로 Git과 Github를 사용할 것이고 Git 사용규칙을 정할 것이다. 테스트용 배포에서는 편의를 위해 Docker를 사용하고 Unittest로 단위테스트와 통합테스트를 하며, Selenium으로 기능 테스트를 할 것이다. Travis CI로 테스트를 자동화 한다. 최종 배포는 Nginx와 uWSGI로 할 것이다.</p>
+
+<p>이런 내용을 정리하면 아래와 같은데</p>
+
+<p>일종의 간단한 <a href="https://medium.com/@dnjswbf/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%EC%A0%95%EC%9D%98%EC%84%9C-%EA%B8%B0%EC%88%A0%EC%84%9C-%EB%AA%85%EC%84%B8%EC%84%9C-b8d47599ab64" target="_blank">요구사항명세서(Software Requirements Specification)</a> 이다.</p>
+
+<h3 id="기능">기능</h3>
+
+<h4 id="필수-기능">필수 기능</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    * 회원 기능
+        - authentication
+            email
+
+    * 블로그 기능
+        - CRUD
+        - pagination
+    * SEO
+        - Sitemap
+        - meta
+    * Log
+        - log text file
+</code></pre></div></div>
+
+<h4 id="필수-기술">필수 기술</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    * PEP8
+    * Django
+    * MySQL
+    * 단위 테스트, 통합 테스트
+    * Git &amp; Github, Git Flow
+    * uWSGI
+    * Docker
+    * Travis CI
+</code></pre></div></div>
+
+<h4 id="선택-조건">선택 조건</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    * Setting은 config.py에서 개발, 운용을 구분하여 설정
+</code></pre></div></div>
+
+<p><br />
+<br /></p>
+
+<hr />
+
+<h3 id="erd-entity-relationship-diagram">ERD (Entity-Relationship Diagram)</h3>
+
+<p><a href="https://dev.mysql.com/downloads/workbench/" target="_blank">MySQL Workbench</a>를 이용하여 ERD 모델링을 하였다.</p>
+
+<p>참고로 id (ERD에서는 idx)는 INT가 아닌 BIGINT로 설정해야 한다. 서비스가 커질 경우 INT는 한계값에 도달하게 된다.</p>
+
+<p><br /></p>
+
+<p><img src="/images/posts/2020-12-14/django_blog_erd.jpg" alt="django_blog_erd.jpg" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<h3 id="git-생성">git 생성</h3>
+
+<p>Github 또는 Gitlab에서 git을 생성한다.</p>
+
+<p><a href="https://github.com/rakjido/Django-Blog.git" target="_blank">https://github.com/rakjido/Django-Blog.git</a></p>
+
+<p><br /></p>
+
+<h3 id="git-commit-분류코드">git commit 분류코드</h3>
+
+<p><br />
+git-flow 전략은 <a href="https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html" target="_blank">이곳</a>을 참조한다.</p>
+
+<p>여기서는 git commit 분류코드만을 적용하기로 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ENH: (Enhancement) 개선하거나 신기능 추가
+BUG: 버그 수정
+DOC: (Documentation) 문서화 관련된 작업
+TST: (Test) 새로운 유닛테스트를 추가하거나 기존 테스트를 수정
+BLD: (Build) 빌드 프로세스 관련 코드 혹은 스크립트를 수정
+PERF: (Performance) 계산 속도의 개선과 관련된 작업
+CLN: (Cleanup) 코드를 정리하거나 리팩토링한 작업
+</code></pre></div></div>
+
+<p><br />
+git commit을 할 때 다음과 같이 커밋 메시지를 작성한다.</p>
+
+<p><br />
+예시</p>
+
+<blockquote>
+  <p>[ENH] board의 view.py에서 board_list에 pagination 추가</p>
+</blockquote>
+
+<blockquote>
+  <p>[TST] test_unit에 test_board_urls 추가</p>
+</blockquote>
+
+<p><br /></p>
+
+<hr />
+
+<h4 id="reference">Reference</h4>
+
+<p><a href="http://story.haezoom.com/?p=936" target="_blank">git commit 분류코드</a></p>
+
+
+</div>
+
+
+
+<div class="pagination">
+  
+  
+    <a href="/2020/12/07/Rust-C++-Java-R-Python-Speed-Comparison-Using-Monte-Carlo-Simulation-of-Option" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-12-14 10:43:13 +0900">2020</time> ROOFTOP HERO. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>

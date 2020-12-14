@@ -5,10 +5,151 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Dec 2020 10:52:28 +0900</pubDate>
-    <lastBuildDate>Mon, 07 Dec 2020 10:52:28 +0900</lastBuildDate>
+    <pubDate>Mon, 14 Dec 2020 10:43:13 +0900</pubDate>
+    <lastBuildDate>Mon, 14 Dec 2020 10:43:13 +0900</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
 
+    
+      <item>
+        <title>Django Blog 로드맵</title>
+        <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Django 웹 프레임워크 최소 기능을 정의하고 어떻게 구현할 것인가에 대한 로드맵을 그린다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;웹프레임워크를 빨리 파악하는 방법은 무엇일까.&lt;/p&gt;
+
+&lt;p&gt;우선 어떤 웹페이지의 CRUD, 즉 생성(Create), 읽기(Read), 업데이트(Update), 삭제(Delete)를 어떻게 하는지 만들어 보고
+보안이 된 회원가입 기능(authentication)을 구현해보는 것이다.&lt;/p&gt;
+
+&lt;p&gt;검색에서 상위 순위에 오르는 것은 효율적인 마케팅 수단이 되므로 검색엔진 최적화를 위해 Meta 태그와 Sitemap을 추가한다.&lt;/p&gt;
+
+&lt;p&gt;로그파일은 장애를 파악할 수 있도록 text 파일로 저장한다.&lt;/p&gt;
+
+&lt;p&gt;이 정도면 웹프레임워크의 &lt;a href=&quot;https://brunch.co.kr/@jjollae/7&quot; target=&quot;_blank&quot;&gt;최소기능제품(Minimum Viable Product)&lt;/a&gt;라 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;위의 기능을 Django와 Mysql 데이터베이스를 조합하여 구현할 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2020년 12월 11일 기준 기업가치가 470억 달러로 평가되는 AirBnB도 최초의 MVP는 이랬다 한다. 용기를 내자(?)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2020-12-14/airbnb.png&quot; alt=&quot;airbnb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agile한 개발을 위해서는 처음부터 &lt;a href=&quot;https://brunch.co.kr/@jowlee/120&quot; target=&quot;_blank&quot;&gt;DevOps&lt;/a&gt;를 구축해야 한다.
+PEP8 코드스타일을 따르고 비전관리툴로 Git과 Github를 사용할 것이고 Git 사용규칙을 정할 것이다. 테스트용 배포에서는 편의를 위해 Docker를 사용하고 Unittest로 단위테스트와 통합테스트를 하며, Selenium으로 기능 테스트를 할 것이다. Travis CI로 테스트를 자동화 한다. 최종 배포는 Nginx와 uWSGI로 할 것이다.&lt;/p&gt;
+
+&lt;p&gt;이런 내용을 정리하면 아래와 같은데&lt;/p&gt;
+
+&lt;p&gt;일종의 간단한 &lt;a href=&quot;https://medium.com/@dnjswbf/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD-%EC%A0%95%EC%9D%98%EC%84%9C-%EA%B8%B0%EC%88%A0%EC%84%9C-%EB%AA%85%EC%84%B8%EC%84%9C-b8d47599ab64&quot; target=&quot;_blank&quot;&gt;요구사항명세서(Software Requirements Specification)&lt;/a&gt; 이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;기능&quot;&gt;기능&lt;/h3&gt;
+
+&lt;h4 id=&quot;필수-기능&quot;&gt;필수 기능&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    * 회원 기능
+        - authentication
+            email
+
+    * 블로그 기능
+        - CRUD
+        - pagination
+    * SEO
+        - Sitemap
+        - meta
+    * Log
+        - log text file
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;필수-기술&quot;&gt;필수 기술&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    * PEP8
+    * Django
+    * MySQL
+    * 단위 테스트, 통합 테스트
+    * Git &amp;amp; Github, Git Flow
+    * uWSGI
+    * Docker
+    * Travis CI
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;선택-조건&quot;&gt;선택 조건&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    * Setting은 config.py에서 개발, 운용을 구분하여 설정
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;erd-entity-relationship-diagram&quot;&gt;ERD (Entity-Relationship Diagram)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dev.mysql.com/downloads/workbench/&quot; target=&quot;_blank&quot;&gt;MySQL Workbench&lt;/a&gt;를 이용하여 ERD 모델링을 하였다.&lt;/p&gt;
+
+&lt;p&gt;참고로 id (ERD에서는 idx)는 INT가 아닌 BIGINT로 설정해야 한다. 서비스가 커질 경우 INT는 한계값에 도달하게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2020-12-14/django_blog_erd.jpg&quot; alt=&quot;django_blog_erd.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;git-생성&quot;&gt;git 생성&lt;/h3&gt;
+
+&lt;p&gt;Github 또는 Gitlab에서 git을 생성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/rakjido/Django-Blog.git&quot; target=&quot;_blank&quot;&gt;https://github.com/rakjido/Django-Blog.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;git-commit-분류코드&quot;&gt;git commit 분류코드&lt;/h3&gt;
+
+&lt;p&gt;&lt;br /&gt;
+git-flow 전략은 &lt;a href=&quot;https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html&quot; target=&quot;_blank&quot;&gt;이곳&lt;/a&gt;을 참조한다.&lt;/p&gt;
+
+&lt;p&gt;여기서는 git commit 분류코드만을 적용하기로 한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ENH: (Enhancement) 개선하거나 신기능 추가
+BUG: 버그 수정
+DOC: (Documentation) 문서화 관련된 작업
+TST: (Test) 새로운 유닛테스트를 추가하거나 기존 테스트를 수정
+BLD: (Build) 빌드 프로세스 관련 코드 혹은 스크립트를 수정
+PERF: (Performance) 계산 속도의 개선과 관련된 작업
+CLN: (Cleanup) 코드를 정리하거나 리팩토링한 작업
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+git commit을 할 때 다음과 같이 커밋 메시지를 작성한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+예시&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[ENH] board의 view.py에서 board_list에 pagination 추가&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[TST] test_unit에 test_board_urls 추가&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;reference&quot;&gt;Reference&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://story.haezoom.com/?p=936&quot; target=&quot;_blank&quot;&gt;git commit 분류코드&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 14 Dec 2020 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/12/14/Django-Blog-Minimal-Requirement-Specification</guid>
+      </item>
     
       <item>
         <title>Monte Carlo Simulation을 이용한 Rust vs C++ vs Java vs R vs Python 벤치마크</title>
@@ -636,6 +777,8 @@ Django는 다양한 공격을 방지할 수 있는 기능들이 이미 구현되
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;다음&lt;/strong&gt; : &lt;a href=&quot;/2020/12/14/Django-Blog-Minimal-Requirement-Specification&quot;&gt;Django Blog 로드맵&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;h4 id=&quot;reference&quot;&gt;Reference&lt;/h4&gt;
@@ -643,6 +786,7 @@ Django는 다양한 공격을 방지할 수 있는 기능들이 이미 구현되
 &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ko/docs/Learn/Server-side/Django/Introduction&quot; target=&quot;_blank&quot;&gt;Django 소개&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8FQ4zW_F_Iw&quot; target=&quot;_blank&quot;&gt;Most Popular Backend Frameworks 2012-2019&lt;/a&gt;&lt;/p&gt;
+
 </description>
         <pubDate>Tue, 17 Nov 2020 00:00:00 +0900</pubDate>
         <link>http://localhost:4000/2020/11/17/Django-Overview</link>
