@@ -96,7 +96,7 @@ PEP8 코드스타일을 따르고 비전관리툴로 Git과 Github를 사용할 
 
 <br>
 
-![django_blog_erd.jpg](/images/posts/2020-12-14/django_blog_erd.JPG)
+![django_blog_erd.jpg](/images/posts/2020-12-14/django_blog_erd.jpg)
 
 <br>
 
