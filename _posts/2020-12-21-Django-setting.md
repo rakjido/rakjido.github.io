@@ -63,7 +63,7 @@ pip install pylint
 
 <br>
 
-참고로 VSCODE의 Extension에서 Django를 설치했을 때 Django 플러그인 모드에서 VScode에서 [emmet 기능](https://code.visualstudio.com/docs/editor/emmet){:target="_blank"}이 제대로 되지 않을 경우 __setting.json__에 다음을 추가한다.
+참고로 VSCODE의 Extension에서 Django를 설치했을 때 Django 플러그인 모드에서 VScode에서 [emmet 기능](https://code.visualstudio.com/docs/editor/emmet){:target="_blank"}이 제대로 되지 않을 경우 setting.json에 다음을 추가한다.
 
 
 ```json
