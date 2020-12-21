@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu 14.04에서 Spring web을 tomcat에서 실행하기 
 author: "Rooftop Hero"
 comments: false
-tags: DevOps
+tags: DevOps Spring
 
 ---
 
