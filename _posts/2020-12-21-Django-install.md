@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django install
+title: Django Install
 author: "Rooftop Hero"
 comments: false
 tags: Django
@@ -132,6 +132,10 @@ python manage.py runserver 127.0.0.1:7000
 
 ![django_initial.png](/images/posts/2020-12-21/django_initial.png)
 
+
+<br>
+
+**다음** : [Django Setting](/2020/12/28/Django-Setting)  
 
 
 ---

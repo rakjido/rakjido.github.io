@@ -140,7 +140,7 @@ git commit을 할 때 다음과 같이 커밋 메시지를 작성한다.
 
 <br>
 
-**다음** : [Django install](/2020/12/21/Django-setting)  
+**다음** : [Django Install](/2020/12/21/Django-install)  
 
 
 ---
