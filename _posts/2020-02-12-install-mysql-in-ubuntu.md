@@ -33,7 +33,7 @@ sudo mysql
 
 다음과 같이 비밀번호를 변경한다.
 
-```
+```sql
 alter user 'root'@'localhost' identified with mysql_native_password by '1234';
 ```
 
