@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ubuntu 14.04에서 Spring web을 tomcat에서 실행하기 
+title: Ubuntu 18.04에서 Spring web을 tomcat에서 실행하기 
 author: "Rooftop Hero"
 comments: false
 tags: DevOps Spring
@@ -13,7 +13,7 @@ tags: DevOps Spring
 
 <br>
 
-이 글은 Ubuntu 14.04.6 LTS를 기준으로 작성되었습니다. GCP, Godo Cloud등 클라우드 서비스에 동일하게 적용할 수 있습니다. 또한 [Windows10에 적용된 WSL2하의 Ubuntu 20.04.1 LTS](https://www.44bits.io/ko/post/wsl2-install-and-basic-usage){:target="_blank"}에서도 문제없이 작동합니다. 
+이 글은 Ubuntu 18.04 LTS를 기준으로 작성되었습니다. GCP, Godo Cloud등 클라우드 서비스에 동일하게 적용할 수 있습니다. 또한 [Windows10에 적용된 WSL2하의 Ubuntu 20.04.1 LTS](https://www.44bits.io/ko/post/wsl2-install-and-basic-usage){:target="_blank"}에서도 문제없이 작동합니다. 
 
 
 ### 1. JDK 1.8 설치
