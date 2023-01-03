@@ -36,15 +36,19 @@ sudo mysql
 ```sql
 alter user 'root'@'localhost' identified with mysql_native_password by '1234';
 ```
-
+<br>
 
 ### UTF-8 설정
+
+<br>
 
 my.cnf를 찾기 위해서 다음의 명령어를 사용한다.
 
 ```
 mysqld --verbose --help | grep -A 1 'Default options'
 ```
+<br>
+
 찾은 my.cnf 중 /etc/mysql/my.cnf 에 UTF-8를 다음과 같이 설정한다.
 
 ```
