@@ -3,7 +3,7 @@ layout: post
 title: Ubuntu 18.04에서 Spring web을 tomcat에서 실행하기 
 author: "Rooftop Hero"
 comments: false
-tags: DevOps Spring
+tags: DevOps Spring Ubuntu
 
 ---
 
